@@ -22,6 +22,8 @@ location /nzbhydra {
   proxy_pass        http://127.0.0.1:5076/nzbhydra;
   auth_basic "What's the password?";
   auth_basic_user_file /etc/htpasswd.d/htpasswd.${user};
+  proxy_set_header Upgrade $http_upgrade;
+  proxy_set_header Connection "upgrade";
 }
 RAD
 fi
